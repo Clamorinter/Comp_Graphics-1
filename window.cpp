@@ -1,6 +1,6 @@
 #include "Window.h"
 
-Window::Window(int x, int y) // инициализация окна с названием "lines" и белым фоном
+Window::Window(int x, int y) 
 {
 	initwindow(x, y, "lines");
 
@@ -8,7 +8,7 @@ Window::Window(int x, int y) // инициализация окна с названием "lines" и белым ф
 	cleardevice();
 }
 
-Window::~Window() // удаление окна, очистка памяти
+Window::~Window() 
 {
 	closegraph();
 	for (int i = 0; i < count; i++)
@@ -18,7 +18,7 @@ Window::~Window() // удаление окна, очистка памяти
 	delete[] lines;
 }
 
-void Window::doAKey(char key) // ответ окна в ответ на нажатую пользователем клавишу
+void Window::doAKey(char key) 
 {
 	switch (key)
 	{
@@ -294,7 +294,7 @@ void Window::doAKey(char key) // ответ окна в ответ на нажатую пользователем кла
 	}
 }
 
-void Window::doAMouse(dot click) // реагирование на нажатие левой кнопки мыши пользователем
+void Window::doAMouse(dot click) 
 {
 	if (createflag && !moveflag && !dragflag)
 	{
@@ -314,7 +314,7 @@ void Window::doAMouse(dot click) // реагирование на нажатие левой кнопки мыши по
 	}
 }
 
-void Window::createmode(dot click) // создание новой линии
+void Window::createmode(dot click) 
 {
 	if (!Aget)
 	{
@@ -358,7 +358,7 @@ void Window::createmode(dot click) // создание новой линии
 	}
 }
 
-void Window::choose(dot click) // выбор линии
+void Window::choose(dot click)
 {
 	int er = 2;
 	A = { click.x, click.y };
@@ -399,7 +399,7 @@ void Window::choose(dot click) // выбор линии
 	}
 }
 
-void Window::dragmode(dot click) // перетаскивание мышью точки линии
+void Window::dragmode(dot click)
 {
 	if (!dragflag)
 	{
@@ -428,7 +428,7 @@ void Window::dragmode(dot click) // перетаскивание мышью точки линии
 	}
 }
 
-void Window::movemode(dot click) // передвижение мышью линии
+void Window::movemode(dot click)
 {
 	A = { click.x, click.y };
 	if (lines[choosed]->isinLine(A))
@@ -449,7 +449,7 @@ void Window::movemode(dot click) // передвижение мышью линии
 	}
 }
 
-void Window::draggingOff() // отключение режима перетаскивания точки
+void Window::draggingOff() 
 {
 	dragflag = false;
 	lines[choosed]->setColor(9);
@@ -457,7 +457,7 @@ void Window::draggingOff() // отключение режима перетаскивания точки
 	menuchange = true;
 }
 
-void Window::movingOff() // отключение режима движения точки
+void Window::movingOff() 
 {
 	moveflag = false;
 	lines[choosed]->setColor(9);
@@ -465,7 +465,7 @@ void Window::movingOff() // отключение режима движения точки
 	menuchange = true;
 }
 
-void Window::doAChange() // обновление содержимого окна
+void Window::doAChange() 
 {
 	cleardevice();
 	for (int i = 0; i < count; i++)
@@ -475,27 +475,27 @@ void Window::doAChange() // обновление содержимого окна
 	changeflag = false;
 }
 
-bool Window::isDragging() // возвращение флага dragflag
+bool Window::isDragging() 
 {
 	return dragflag;
 }
 
-bool Window::isMoving() // возвращение флага moveflag
+bool Window::isMoving() 
 {
 	return moveflag;
 }
 
-bool Window::isChange() // возвращение флага changeflag
+bool Window::isChange() 
 {
 	return changeflag;
 }
 
-bool Window::isExit() // возвразение флага exit
+bool Window::isExit() 
 {
 	return exit;
 }
 
-void Window::menu() // реализация диалога с пользователем в консоли
+void Window::menu() 
 {
 	if (menuchange)
 	{

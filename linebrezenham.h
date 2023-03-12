@@ -1,7 +1,7 @@
 #pragma once
 #include "line.h"
 
-class lineBrezenham : public Line // линия, нарисованная при помощи алгоритма Брезенхэма
+class lineBrezenham : public Line 
 {
 public:
 	lineBrezenham(dot A, dot B) : Line(A, B) {};

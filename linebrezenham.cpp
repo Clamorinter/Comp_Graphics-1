@@ -1,6 +1,6 @@
 #include "linebrezenham.h"
 
-void lineBrezenham::draw() // алгоритм Брезенхэма для всех направлений линии
+void lineBrezenham::draw() 
 {
 	int deltax = abs(B.x - A.x);
 	int deltay = abs(B.y - A.y);
@@ -86,7 +86,7 @@ void lineBrezenham::draw() // алгоритм Брезенхэма для всех направлений линии
 	
 }
 
-char lineBrezenham::method() // метод, возвращающий тип линии
+char lineBrezenham::method() 
 {
 	return 'b';
 }

@@ -1,22 +1,22 @@
 #include "line.h"
 
-Line::Line(dot A, dot B) // в случае объявления линии с координатами
+Line::Line(dot A, dot B) 
 {
 	this->A = A; 
 	this->B = B;
 }
 
-void Line::draw() // в случае вызова виртуального метода в базовом классе
+void Line::draw() 
 {
 	return;
 }
 
-char Line::method() // в случае вызова виртуального метода в базовом классе
+char Line::method() 
 {
 	return ' ';
 }
 
-void Line::move(dot start, dot end) // передвижение линии, основыванное на разности координат двух точек
+void Line::move(dot start, dot end) 
 {
 	int dx = end.x - start.x;
 	int dy = end.y - start.y;
@@ -26,19 +26,19 @@ void Line::move(dot start, dot end) // передвижение линии, основыванное на разно
 	B.y = B.y + dy;
 }
 
-void Line::dragA(dot A) // перетаскивание точки A
+void Line::dragA(dot A) 
 {
 	this->A.x = A.x;
 	this->A.y = A.y;
 }
 
-void Line::dragB(dot B) // перетаскивание точки B
+void Line::dragB(dot B) 
 {
 	this->B.x = B.x;
 	this->B.y = B.y;
 }
 
-void Line::rotate(float rad) // поворот линии на заданный угол
+void Line::rotate(float rad) 
 {
 	dot center{ (int)round((float)(A.x + B.x) / 2.0), (int)round((float)(A.y + B.y) / 2.0) };
 	dot null{ 0, 0 };
@@ -53,7 +53,7 @@ void Line::rotate(float rad) // поворот линии на заданный угол
 	move(null, center);
 }
 
-void Line::changeLength(float dlength) // изменение длины линии в dlength раз
+void Line::changeLength(float dlength) 
 {
 	dot center{ (int)round((float)(A.x + B.x) / 2.0), (int)round((float)(A.y + B.y) / 2.0) };
 	dot null{ 0, 0 };
@@ -77,12 +77,12 @@ void Line::changeLength(float dlength) // изменение длины линии в dlength раз
 	move(null, center);
 }
 
-void Line::setColor(int color) // установление цвета линии
+void Line::setColor(int color) 
 {
 	this->color = color;
 }
 
-bool Line::isinLine(dot X) // проверка на то, находится ли точка X на/около линии
+bool Line::isinLine(dot X) 
 {
 	int xx;
 	int yy;
@@ -128,7 +128,7 @@ bool Line::isinLine(dot X) // проверка на то, находится ли точка X на/около лини
 	return ends;
 }
 
-char Line::isonEdge(dot X) // проверка на то, находится ли точка на конце отрезка
+char Line::isonEdge(dot X) 
 {
 	int er = 15;
 	for (int i = X.x - er; i <= X.x + er; i++)

@@ -1,12 +1,12 @@
 #include "linegraphics.h"
 
-void lineGraphics::draw() // нарисовать линию
+void lineGraphics::draw() 
 {
 		setcolor(color);
 		line(A.x, A.y, B.x, B.y);
 }
 
-char lineGraphics::method() // метод, возвращающий тип линии
+char lineGraphics::method() 
 {
 	return 'g';
 }

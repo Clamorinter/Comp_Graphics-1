@@ -5,12 +5,12 @@
 #include "graphics.h"
 #pragma comment(lib,"graphics.lib")
 
-struct dot { // структура, представляю собой точку с двумя координатами
+struct dot { 
 	int x = 0;
 	int y = 0;
 };
 
-class Line { // класс, представляющий собой линию
+class Line { 
 public:
 	Line(dot A, dot B);
 	void move(dot start, dot end);
@@ -27,7 +27,7 @@ public:
 
 	virtual char method();
 protected:
-	dot A; // первая точка линии
-	dot B; // вторая точка линии
-	int color = 0; // цвет линии
+	dot A; 
+	dot B; 
+	int color = 0; 
 };
